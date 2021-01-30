@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="com.google.okhttp:okhttp:20120626" type="repository">
+    <properties maven-id="com.google.okhttp:okhttp:20120626" />
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/lib/okhttp-20120626.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/npn-boot-8.1.2.v20120308.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
