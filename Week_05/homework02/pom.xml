@@ -15,6 +15,7 @@
 	<description>homework for Spring Boot</description>
 	<properties>
 		<java.version>1.8</java.version>
+		<spring-version>4.3.29.RELEASE</spring-version>
 	</properties>
 	<dependencies>
 		<dependency>
@@ -48,7 +49,23 @@
 			<groupId>com.h2database</groupId>
 			<artifactId>h2</artifactId>
 			<scope>runtime</scope>
-		</dependency>	</dependencies>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-jms</artifactId>
+			<version>${spring-version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.activemq</groupId>
+			<artifactId>activemq-client</artifactId>
+			<version>5.15.0</version>
+		</dependency>
+		<dependency>
+			<groupId>com.alibaba</groupId>
+			<artifactId>fastjson</artifactId>
+			<version>1.2.72</version>
+		</dependency>
+	</dependencies>
 
 	<build>
 		<plugins>

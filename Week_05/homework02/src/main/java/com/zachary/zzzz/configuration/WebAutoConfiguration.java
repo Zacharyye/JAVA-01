@@ -15,7 +15,8 @@ public class WebAutoConfiguration {
   @Bean
   @ConditionalOnMissingBean(Student.class)
   public Student student() {
-    return new Student("haha","18");
+//    return new Student("haha","18");
+    return null;
   }
 
   @Bean

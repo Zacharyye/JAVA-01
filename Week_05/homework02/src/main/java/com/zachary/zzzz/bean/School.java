@@ -1,20 +1,21 @@
 package com.zachary.zzzz.bean;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import com.zachary.zzzz.aop.ISchool;
+import lombok.*;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
 
-@Component
-@Getter
-@Setter
-@NoArgsConstructor
-@AllArgsConstructor
-public class School {
-  private String name;
+import javax.annotation.Resource;
 
-  @Autowired
-  private Klass klass;
+@Data
+public class School implements ISchool {
+  @Autowired(required = true)
+  Klass class1;
+
+  @Resource(name = "student100")
+  Student student100;
+
+  @Override
+  public void ding() {
+    System.out.println("Class1 have " + this.class1.getStudents().size() + " students and one is " + this.student100);
+  }
 }

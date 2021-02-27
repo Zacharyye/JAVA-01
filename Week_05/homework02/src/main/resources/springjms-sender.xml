@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="
+            http://www.springframework.org/schema/context
+            http://www.springframework.org/schema/context/spring-context-3.0.xsd
+            http://www.springframework.org/schema/beans
+            http://www.springframework.org/schema/beans/spring-beans-3.0.xsd" >
+
+    <context:component-scan base-package="com.zachary.zzzz"/>
+
+    <bean id="connectionFactory" class="org.apache.activemq.ActiveMQConnectionFactory">
+        <property name="brokerURL" value="tcp://localhost:61616" />
+    </bean>
+
+    <bean id="queue" class="org.apache.activemq.command.ActiveMQQueue">
+        <constructor-arg value="test.queue" />
+    </bean>
+
+    <bean id="jmsTemplate" class="org.springframework.jms.core.JmsTemplate">
+        <property name="connectionFactory" ref="connectionFactory" />
+    </bean>
+
+    <bean id="student123"
+          class="com.zachary.zzzz.bean.Student">
+        <property name="id" value="123" />
+        <property name="name" value="KK123" />
+    </bean>
+
+    <bean id="student100"
+          class="com.zachary.zzzz.bean.Student">
+        <property name="id" value="100" />
+        <property name="name" value="KK100" />
+    </bean>
+
+    <bean id="class1" class="com.zachary.zzzz.bean.Klass">
+        <property name="students">
+            <list>
+                <ref bean="student100" />
+                <ref bean="student123" />
+            </list>
+        </property>
+    </bean>
+</beans>
