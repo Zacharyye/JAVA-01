@@ -59,5 +59,5 @@ CREATE TABLE `e-commerce`.`orderSnapshot`  (
   `deliver_time` TIMESTAMP NULL,
   `receipt_time` TIMESTAMP NULL
   PRIMARY KEY (`id`) USING BTREE,
-  CONSTRAINT UNIQUE(`order_no`,`user_id`,`product_id`) 
+  CONSTRAINT UNIQUE(`order_no`,`product_no`) 
 ) ENGINE = InnoDB;
