@@ -1,0 +1,19 @@
+spring:
+  datasource:
+    master:
+      pool-name: master
+      driver-class-name: com.mysql.cj.jdbc.Driver
+      jdbc-url: jdbc:mysql://localhost:3307/testdb?useUnicode=true&characterEncoding=UTF-8&autoReconnect=true&failOverReadOnly=false&maxReconnects=15000&allowMultiQueries=true&useSSL=false
+      username: root
+      password: "123456"
+      maximum-pool-size: 10
+      minimum-idle: 5
+    slave:
+      pool-name: slave
+      driver-class-name: com.mysql.cj.jdbc.Driver
+      jdbc-url: jdbc:mysql://localhost:3308/testdb?useUnicode=true&characterEncoding=UTF-8&autoReconnect=true&failOverReadOnly=false&maxReconnects=15000&allowMultiQueries=true&useSSL=false
+      username: root
+      password: "123456"
+      maximum-pool-size: 10
+      minimum-idle: 5
+
