@@ -22,4 +22,5 @@ public class T {
   @Column(updatable = false)
   @CreationTimestamp
   private Date createTime;
+  
 }

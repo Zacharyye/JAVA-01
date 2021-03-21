@@ -1,0 +1,88 @@
+spring:
+#  datasource:
+#    driver-class-name: com.mysql.jdbc.Driver
+#    url: jdbc:mysql://localhost:3310/zzz?serverTimezone=Asia/Shanghai&useSSL=false&allowPublicKeyRetrieval=true
+#    username: root
+#    password: 123456
+#    type: com.alibaba.druid.pool.DruidDataSource
+#    initialization-mode: always
+
+  shardingsphere:
+    props:
+      sql:
+        show:
+          true
+    datasource:
+      names: zdb0, zdb1
+      zdb0:
+        type: com.alibaba.druid.pool.DruidDataSource
+        driver-class-name: com.mysql.jdbc.Driver
+        url: jdbc:mysql://localhost:3309/zzz?serverTimezone=Asia/Shanghai&useSSL=false&allowPublicKeyRetrieval=true
+        username: root
+        password: 123456
+        initialization-mode: always
+      zdb1:
+        type: com.alibaba.druid.pool.DruidDataSource
+        driver-class-name: com.mysql.jdbc.Driver
+        url: jdbc:mysql://localhost:3310/zzz?serverTimezone=Asia/Shanghai&useSSL=false&allowPublicKeyRetrieval=true
+        username: root
+        password: 123456
+        initialization-mode: always
+    sharding:
+      default-database-strategy:
+        inline:
+          sharding-column: user_id
+          algorithm-expression: zdb$->{user_id % 2}
+      tables:
+        order_a:
+          actual-data-nodes: zdb$->{0..1}.order_a
+
+        order_b:
+          actual-data-nodes: zdb$->{0..1}.order_b
+
+        order_c:
+          actual-data-nodes: zdb$->{0..1}.order_c
+
+        order_d:
+          actual-data-nodes: zdb$->{0..1}.order_d
+
+        order_e:
+          actual-data-nodes: zdb$->{0..1}.order_e
+
+        order_f:
+          actual-data-nodes: zdb$->{0..1}.order_f
+
+        order_g:
+          actual-data-nodes: zdb$->{0..1}.order_g
+
+        order_h:
+          actual-data-nodes: zdb$->{0..1}.order_h
+
+        order_i:
+          actual-data-nodes: zdb$->{0..1}.order_i
+
+        order_j:
+          actual-data-nodes: zdb$->{0..1}.order_j
+
+        order_k:
+          actual-data-nodes: zdb$->{0..1}.order_k
+
+        order_l:
+          actual-data-nodes: zdb$->{0..1}.order_l
+
+        order_m:
+          actual-data-nodes: zdb$->{0..1}.order_m
+
+        order_n:
+          actual-data-nodes: zdb$->{0..1}.order_n
+
+        order_o:
+          actual-data-nodes: zdb$->{0..1}.order_o
+
+        order_p:
+          actual-data-nodes: zdb$->{0..1}.order_p
+
+order:
+  table:
+    num: 16
+
