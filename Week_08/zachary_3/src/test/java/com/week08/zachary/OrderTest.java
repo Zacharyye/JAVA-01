@@ -13,9 +13,11 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import javax.transaction.Transactional;
+import java.util.regex.Pattern;
 
-@SpringBootTest
-@RunWith(SpringRunner.class)
+//
+//@SpringBootTest
+//@RunWith(SpringRunner.class)
 public class OrderTest {
   @Autowired
   private OrderService orderService;
@@ -78,5 +80,10 @@ public class OrderTest {
     System.out.println("after update2: " + orderService.findOrder(qryOrder2));
     orderService.delOrder(orderVo2);
     System.out.println("after delete2: " + orderService.findOrder(qryOrder2));
+  }
+
+  @Test
+  public void test2 () {
+    System.out.println(Pattern.compile("\\d{11}").matcher("17326722301").matches());
   }
 }
